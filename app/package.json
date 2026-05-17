@@ -1,0 +1,14 @@
+{
+  "name": "cuerpo-humano-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App web educativa interactiva sobre órganos del cuerpo humano en 3D.",
+  "scripts": {
+    "start": "npx --yes serve@latest -l 5173 ..",
+    "start:py": "python -m http.server 5173 --directory ..",
+    "start:node": "npx --yes http-server@latest .. -p 5173 -c-1"
+  },
+  "keywords": ["3D", "educacion", "anatomia", "model-viewer", "cuerpo humano"],
+  "author": "Cuerpo Humano Studio",
+  "license": "MIT"
+}
