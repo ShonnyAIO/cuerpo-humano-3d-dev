@@ -6,6 +6,15 @@ para armar el cuerpo por piezas.
 
 ![Interfaz principal](Mockup.png)
 
+## Video tutorial
+
+En este video explicativo se muestra, paso a paso, como crear una app web
+educativa en 3D del cuerpo humano:
+
+[![Video tutorial: crear una app web educativa en 3D del cuerpo humano](https://img.youtube.com/vi/ekpzfhAXsDw/hqdefault.jpg)](https://youtu.be/ekpzfhAXsDw?si=hnkY339UvqUOFVXM)
+
+[Ver video en YouTube](https://youtu.be/ekpzfhAXsDw?si=hnkY339UvqUOFVXM)
+
 ## Que incluye
 
 - Visor 3D interactivo para modelos `.glb`.
