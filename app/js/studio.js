@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { ORGANOS, rutasOrgano } from "./data.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+import { ORGANOS, rutasOrgano, CDN_BASE_URL } from "./data.js";
 
 const LAYOUT = {
   cerebro: { position: [0, 2.42, 0], scale: 0.9 },
@@ -38,7 +39,7 @@ const ORDER = [
 const SCENE_BG = new THREE.Color(0xf8f5f1);
 const SPAWN = new THREE.Vector3(-1.92, 1.32, 0.18);
 const DROP_THRESHOLD = 0.72;
-const BODY_TEXTURE_PATH = "../app-assets/identidad/cuerpo_modelo.png";
+const BODY_TEXTURE_PATH = CDN_BASE_URL ? `${CDN_BASE_URL}/identidad/cuerpo_modelo.png` : "../app-assets/identidad/cuerpo_modelo.png";
 const BODY_HEIGHT = 5.8;
 const BODY_CENTER_Y = -0.15;
 const BODY_Z = -0.5;
@@ -79,6 +80,9 @@ const bodyMeshes = [];
 
 const organosById = new Map(ORGANOS.map((organo) => [organo.id, organo]));
 const loader = new GLTFLoader();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.6/");
+loader.setDRACOLoader(dracoLoader);
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 const dragPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);

@@ -313,14 +313,18 @@ export const ORGANOS = [
   },
 ];
 
+// Base URL del CDN. Si está vacía, se usarán los archivos locales en app-assets.
+// Ejemplo: "https://mi-cdn.com" o "https://cdn.jsdelivr.net/gh/usuario/repo@rama/app-assets"
+export const CDN_BASE_URL = "";
+
 export const RUTAS = {
-  modelos: "../app-assets/3D",
-  miniaturas: "../app-assets/miniaturas",
-  imagenes: "../app-assets/organos_16x9_transparentes",
-  anatomias: "../app-assets/anatomia",
-  fichas: "../app-assets/datos_importantes",
-  logo: "../app-assets/identidad/logo_cuerpo_humano.png",
-  fondoAnatomico: "../Cuerpo_humano.png",
+  modelos: CDN_BASE_URL ? `${CDN_BASE_URL}/3D` : "../app-assets/3D",
+  miniaturas: CDN_BASE_URL ? `${CDN_BASE_URL}/miniaturas` : "../app-assets/miniaturas",
+  imagenes: CDN_BASE_URL ? `${CDN_BASE_URL}/organos_16x9_transparentes` : "../app-assets/organos_16x9_transparentes",
+  anatomias: CDN_BASE_URL ? `${CDN_BASE_URL}/anatomia` : "../app-assets/anatomia",
+  fichas: CDN_BASE_URL ? `${CDN_BASE_URL}/datos_importantes` : "../app-assets/datos_importantes",
+  logo: CDN_BASE_URL ? `${CDN_BASE_URL}/identidad/logo_cuerpo_humano.png` : "../app-assets/identidad/logo_cuerpo_humano.png",
+  fondoAnatomico: CDN_BASE_URL ? `${CDN_BASE_URL}/Cuerpo_humano.png` : "../Cuerpo_humano.png",
 };
 
 export function rutasOrgano(organo) {
