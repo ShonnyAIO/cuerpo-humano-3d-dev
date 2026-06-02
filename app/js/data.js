@@ -315,7 +315,7 @@ export const ORGANOS = [
 
 // CONFIGURACIÓN DE CDN (CLOUDFLARE R2)
 // Reemplaza esto con la URL pública de tu bucket de Cloudflare R2 (ejemplo: "https://pub-xxxxxx.r2.dev/app-assets")
-const CLOUDFLARE_R2_URL = "TU_URL_DE_CLOUDFLARE_R2_AQUI";
+const CLOUDFLARE_R2_URL = "https://pub-c95a8ee6b3404e69941c9360aa9b8750.r2.dev/app-assets";
 
 // Base URL del CDN. Detecta si estamos en entorno local para usar assets locales,
 // o si estamos en producción (Netlify) para cargarlos desde Cloudflare R2.
