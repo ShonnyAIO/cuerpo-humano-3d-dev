@@ -313,15 +313,19 @@ export const ORGANOS = [
   },
 ];
 
+// CONFIGURACIÓN DE CDN (CLOUDFLARE R2)
+// Reemplaza esto con la URL pública de tu bucket de Cloudflare R2 (ejemplo: "https://pub-xxxxxx.r2.dev/app-assets")
+const CLOUDFLARE_R2_URL = "TU_URL_DE_CLOUDFLARE_R2_AQUI";
+
 // Base URL del CDN. Detecta si estamos en entorno local para usar assets locales,
-// o si estamos en producción para cargarlos desde jsDelivr.
+// o si estamos en producción (Netlify) para cargarlos desde Cloudflare R2.
 export const CDN_BASE_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1" ||
   window.location.hostname === "192.168.1.1" || // Opcional para pruebas en red local
   window.location.port !== "" // Si tiene puerto (ej. 5173 de vite, 3000 de servers locales) se asume desarrollo
     ? ""
-    : "https://cdn.jsdelivr.net/gh/ShonnyAIO/cuerpo-humano-3d-dev@main/app-assets";
+    : CLOUDFLARE_R2_URL;
 
 export const RUTAS = {
   modelos: CDN_BASE_URL ? `${CDN_BASE_URL}/3D` : "../app-assets/3D",
