@@ -9,3 +9,7 @@ pnpm-debug.log*
 Thumbs.db
 dist/
 build/
+
+# Backups y carpetas de prueba locales para modelos 3D
+app-assets/3D-backup/
+test-3d-compression/

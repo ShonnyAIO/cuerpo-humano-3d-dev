@@ -313,9 +313,15 @@ export const ORGANOS = [
   },
 ];
 
-// Base URL del CDN. Si está vacía, se usarán los archivos locales en app-assets.
-// Ejemplo: "https://mi-cdn.com" o "https://cdn.jsdelivr.net/gh/usuario/repo@rama/app-assets"
-export const CDN_BASE_URL = "";
+// Base URL del CDN. Detecta si estamos en entorno local para usar assets locales,
+// o si estamos en producción para cargarlos desde jsDelivr.
+export const CDN_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.hostname === "192.168.1.1" || // Opcional para pruebas en red local
+  window.location.port !== "" // Si tiene puerto (ej. 5173 de vite, 3000 de servers locales) se asume desarrollo
+    ? ""
+    : "https://cdn.jsdelivr.net/gh/ShonnyAIO/cuerpo-humano-3d-dev@main/app-assets";
 
 export const RUTAS = {
   modelos: CDN_BASE_URL ? `${CDN_BASE_URL}/3D` : "../app-assets/3D",

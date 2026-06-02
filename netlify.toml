@@ -1,0 +1,15 @@
+# Configuración para despliegue en Netlify
+
+# Redirigir el tráfico de la raíz "/" directamente a la subcarpeta "/app/"
+[[redirects]]
+  from = "/"
+  to = "/app/"
+  status = 301
+  force = true
+
+# Opcional: Cabeceras para optimizar almacenamiento en caché de recursos estáticos
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400"
