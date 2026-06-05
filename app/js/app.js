@@ -71,7 +71,7 @@ function renderSidebar() {
     const active = organo.id === state.selectedId ? "is-active" : "";
     return `
       <button class="organ-item ${active}" data-id="${organo.id}">
-        <img class="organ-item__thumb" src="${rutas.miniatura}" alt="${organo.nombre}" />
+        <img class="organ-item__thumb" src="${rutas.miniatura}" onerror="this.onerror=null; this.src='../app-assets/miniaturas/${organo.archivos.miniatura}'" alt="${organo.nombre}" />
         <span class="organ-item__text">
           <span class="organ-item__name">${organo.nombre}</span>
           <span class="organ-item__system">${organo.sistema}</span>
@@ -157,10 +157,18 @@ function renderCompareChips() {
   const rutasB = rutasOrgano(organoB);
 
   els.compareAThumb.src = rutasA.imagen;
+  els.compareAThumb.onerror = () => {
+    els.compareAThumb.onerror = null;
+    els.compareAThumb.src = `../app-assets/organos_16x9_transparentes/${organoA.archivos.imagen}`;
+  };
   els.compareAName.textContent = organoA.nombre;
   els.compareASystem.textContent = organoA.sistema;
 
   els.compareBThumb.src = rutasB.imagen;
+  els.compareBThumb.onerror = () => {
+    els.compareBThumb.onerror = null;
+    els.compareBThumb.src = `../app-assets/organos_16x9_transparentes/${organoB.archivos.imagen}`;
+  };
   els.compareBName.textContent = organoB.nombre;
   els.compareBSystem.textContent = organoB.sistema;
 }
@@ -174,7 +182,7 @@ function abrirComparacion() {
     return `
       <article class="compare-col">
         <div class="compare-col__hero">
-          <img src="${rutas.imagen}" alt="${organo.nombre}" />
+          <img src="${rutas.imagen}" onerror="this.onerror=null; this.src='../app-assets/organos_16x9_transparentes/${organo.archivos.imagen}'" alt="${organo.nombre}" />
           <div>
             <strong>${organo.nombre}</strong>
             <em>${organo.descriptor}</em>
@@ -268,7 +276,7 @@ function abrirVistaAuxiliar(view) {
           const rutas = rutasOrgano(item);
           return `
             <button class="library-item" data-jump="${item.id}">
-              <img src="${rutas.imagen}" alt="" />
+              <img src="${rutas.imagen}" onerror="this.onerror=null; this.src='../app-assets/organos_16x9_transparentes/${item.archivos.imagen}'" alt="" />
               <strong>${item.nombre}</strong>
               <span>${item.sistema}</span>
             </button>
@@ -382,6 +390,15 @@ function setupEventos() {
   });
 
   els.modelViewer.addEventListener("error", () => {
+    const src = els.modelViewer.getAttribute("src");
+    if (src && src.startsWith("https://") && !src.includes("localhost")) {
+      const organo = getOrgano(state.selectedId);
+      if (organo) {
+        const localSrc = `../app-assets/3D/${organo.archivos.modelo}`;
+        els.modelViewer.setAttribute("src", localSrc);
+        return;
+      }
+    }
     els.viewerStage.classList.remove("is-loading");
     toast("No se pudo cargar el modelo 3D");
   });
@@ -393,11 +410,13 @@ function setupEventos() {
       const data = {
         anatomia: {
           src: rutas.anatomia,
+          fallback: `../app-assets/anatomia/${organo.archivos.anatomia}`,
           title: `Anatomía · ${organo.nombre}`,
           caption: organo.importancia,
         },
         ficha: {
           src: rutas.ficha,
+          fallback: `../app-assets/datos_importantes/${organo.archivos.ficha}`,
           title: `Ficha visual · ${organo.nombre}`,
           caption: organo.resumen,
         },
@@ -405,6 +424,10 @@ function setupEventos() {
 
       els.modalImageTitle.textContent = data.title;
       els.modalImageImg.src = data.src;
+      els.modalImageImg.onerror = () => {
+        els.modalImageImg.onerror = null;
+        els.modalImageImg.src = data.fallback;
+      };
       els.modalImageImg.alt = data.title;
       els.modalImageCaption.textContent = data.caption;
       els.modalImage.classList.add("is-open");
@@ -423,15 +446,64 @@ function setupEventos() {
 
   $("#btn-compare").addEventListener("click", abrirComparacion);
 
+  const btnZoomImage = $("#btn-zoom-image");
+  const modalPanelImage = els.modalImage ? els.modalImage.querySelector(".modal__panel--image") : null;
+
+  function toggleImageZoom() {
+    if (modalPanelImage) {
+      const isZoomed = modalPanelImage.classList.toggle("is-zoomed");
+      if (btnZoomImage) {
+        const icon = btnZoomImage.querySelector("i");
+        if (icon) {
+          icon.setAttribute("data-lucide", isZoomed ? "minimize-2" : "maximize-2");
+          refreshIcons();
+        }
+      }
+    }
+  }
+
+  if (btnZoomImage) {
+    btnZoomImage.addEventListener("click", toggleImageZoom);
+  }
+
+  if (els.modalImageImg) {
+    els.modalImageImg.addEventListener("click", toggleImageZoom);
+  }
+
   document.querySelectorAll("[data-close]").forEach((button) => {
     button.addEventListener("click", () => {
-      button.closest(".modal").classList.remove("is-open");
+      const modal = button.closest(".modal");
+      modal.classList.remove("is-open");
+      const panel = modal.querySelector(".modal__panel--image");
+      if (panel) {
+        panel.classList.remove("is-zoomed");
+        if (btnZoomImage) {
+          const icon = btnZoomImage.querySelector("i");
+          if (icon) {
+            icon.setAttribute("data-lucide", "maximize-2");
+            refreshIcons();
+          }
+        }
+      }
     });
   });
 
   document.querySelectorAll(".modal").forEach((modal) => {
     modal.addEventListener("click", (event) => {
-      if (event.target === modal) modal.classList.remove("is-open");
+      if (event.target === modal) {
+        modal.classList.remove("is-open");
+        const panel = modal.querySelector(".modal__panel--image");
+        if (panel) {
+          panel.classList.remove("is-zoomed");
+          if (btnZoomImage) {
+            const icon = btnZoomImage.querySelector("i");
+            if (icon) {
+              icon.setAttribute("data-lucide", "maximize-2");
+              refreshIcons();
+            }
+          }
+        }
+      }
     });
   });
 

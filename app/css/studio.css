@@ -680,6 +680,11 @@ a {
     position: relative;
   }
 
+  .studio-logo {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
   .studio-nav {
     order: 3;
     width: 100%;
@@ -689,8 +694,10 @@ a {
 
   .studio-avatar {
     position: absolute;
-    top: 14px;
+    top: 22px;
     right: 16px;
+    width: 45px !important;
+    height: 45px !important;
   }
 
   .studio-workspace {

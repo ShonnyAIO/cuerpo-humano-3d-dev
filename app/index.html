@@ -192,9 +192,14 @@
     <div class="modal__panel modal__panel--image">
       <div class="modal__head">
         <h2 id="modal-image-title">Galería</h2>
-        <button class="modal__close" data-close aria-label="Cerrar">
-          <i data-lucide="x"></i>
-        </button>
+        <div style="display: flex; gap: 8px;">
+          <button class="modal__close" id="btn-zoom-image" title="Pantalla completa/Zoom">
+            <i data-lucide="maximize-2"></i>
+          </button>
+          <button class="modal__close" data-close aria-label="Cerrar">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
       </div>
       <img id="modal-image-img" alt="" />
       <p id="modal-image-caption"></p>
