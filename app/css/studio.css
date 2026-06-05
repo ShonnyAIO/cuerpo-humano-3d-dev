@@ -758,3 +758,123 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ==========================================================================
+   Modo Pantalla Completa (Fullscreen Layout)
+   ========================================================================== */
+
+/* Ocultar la barra superior en modo pantalla completa */
+.studio-app.is-fullscreen .studio-topbar {
+  display: none;
+}
+
+/* Redimensionar el contenedor principal */
+.studio-app.is-fullscreen .studio-workspace {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* El shell de la escena ocupa todo el viewport */
+.studio-app.is-fullscreen .scene-shell {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  border-radius: 0;
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  position: relative;
+  background: transparent;
+  gap: 0;
+  z-index: 1;
+}
+
+/* El envoltorio del canvas de Three.js ocupa el 100% */
+.studio-app.is-fullscreen .scene-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Barra lateral flotante de herramientas (izquierda) */
+.studio-app.is-fullscreen .tool-rail {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(225, 228, 232, 0.7);
+  box-shadow: var(--shadow-md);
+  margin: 0;
+}
+
+/* Panel flotante de piezas (derecha) */
+.studio-app.is-fullscreen .piece-panel {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  z-index: 10;
+  width: 320px;
+  max-height: calc(100vh - 40px);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(225, 228, 232, 0.7);
+  box-shadow: var(--shadow-md);
+  margin: 0;
+}
+
+/* Panel flotante de información y acciones (abajo centro) */
+.studio-app.is-fullscreen .scene-actions {
+  position: absolute;
+  bottom: 20px;
+  left: 122px; /* 20px margen + 86px tool-rail + 16px separación */
+  right: 356px; /* 20px margen + 320px piece-panel + 16px separación */
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(225, 228, 232, 0.7);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  padding: 12px 20px 16px;
+  margin: 0;
+}
+
+/* Adaptación responsive para pantallas más pequeñas en pantalla completa */
+@media (max-width: 960px) {
+  .studio-app.is-fullscreen .tool-rail {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    transform: none;
+    flex-direction: row;
+    height: auto;
+    justify-content: space-around;
+  }
+  
+  .studio-app.is-fullscreen .piece-panel {
+    top: 110px;
+    right: 20px;
+    bottom: auto;
+    height: 180px;
+    width: calc(100% - 40px);
+  }
+  
+  .studio-app.is-fullscreen .scene-actions {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}

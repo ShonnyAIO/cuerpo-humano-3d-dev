@@ -778,6 +778,12 @@ function bindEvents() {
 
     document.addEventListener("fullscreenchange", () => {
       const isFullscreen = !!document.fullscreenElement;
+      
+      const appEl = $(".studio-app");
+      if (appEl) {
+        appEl.classList.toggle("is-fullscreen", isFullscreen);
+      }
+      
       btnFullscreen.classList.toggle("is-active", isFullscreen);
       const icon = btnFullscreen.querySelector("i");
       if (icon) {
@@ -788,6 +794,9 @@ function bindEvents() {
       if (label) {
         label.textContent = isFullscreen ? "Salir" : "Pantalla";
       }
+
+      // Asegurar el redimensionamiento del canvas al cambiar el modo
+      setTimeout(resizeRenderer, 50);
     });
   }
   $("#btn-undo").addEventListener("click", undoLastPlacement);
