@@ -10,6 +10,7 @@ const state = {
   fieldOfView: 32,
 };
 
+
 const $ = (selector) => document.querySelector(selector);
 
 const els = {
@@ -447,44 +448,27 @@ function setupEventos() {
   $("#btn-compare").addEventListener("click", abrirComparacion);
 
   const btnZoomImage = $("#btn-zoom-image");
-  const modalPanelImage = els.modalImage ? els.modalImage.querySelector(".modal__panel--image") : null;
-
-  function toggleImageZoom() {
-    if (modalPanelImage) {
-      const isZoomed = modalPanelImage.classList.toggle("is-zoomed");
-      if (btnZoomImage) {
-        const icon = btnZoomImage.querySelector("i");
-        if (icon) {
-          icon.setAttribute("data-lucide", isZoomed ? "minimize-2" : "maximize-2");
-          refreshIcons();
-        }
-      }
-    }
-  }
 
   if (btnZoomImage) {
-    btnZoomImage.addEventListener("click", toggleImageZoom);
+    btnZoomImage.addEventListener("click", () => {
+      if (els.modalImageImg && els.modalImageImg.src) {
+        window.open(els.modalImageImg.src, "_blank");
+      }
+    });
   }
 
   if (els.modalImageImg) {
-    els.modalImageImg.addEventListener("click", toggleImageZoom);
+    els.modalImageImg.addEventListener("click", () => {
+      if (els.modalImageImg.src) {
+        window.open(els.modalImageImg.src, "_blank");
+      }
+    });
   }
 
   document.querySelectorAll("[data-close]").forEach((button) => {
     button.addEventListener("click", () => {
       const modal = button.closest(".modal");
       modal.classList.remove("is-open");
-      const panel = modal.querySelector(".modal__panel--image");
-      if (panel) {
-        panel.classList.remove("is-zoomed");
-        if (btnZoomImage) {
-          const icon = btnZoomImage.querySelector("i");
-          if (icon) {
-            icon.setAttribute("data-lucide", "maximize-2");
-            refreshIcons();
-          }
-        }
-      }
     });
   });
 
@@ -492,17 +476,6 @@ function setupEventos() {
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         modal.classList.remove("is-open");
-        const panel = modal.querySelector(".modal__panel--image");
-        if (panel) {
-          panel.classList.remove("is-zoomed");
-          if (btnZoomImage) {
-            const icon = btnZoomImage.querySelector("i");
-            if (icon) {
-              icon.setAttribute("data-lucide", "maximize-2");
-              refreshIcons();
-            }
-          }
-        }
       }
     });
   });
