@@ -17,10 +17,10 @@ export const ORGANOS = [
     detalle: "Órgano principal del encéfalo",
     archivos: {
       modelo: "Cerebro.glb",
-      miniatura: "thumb_cerebro.png",
-      imagen: "Cerebro_transparente.png",
-      anatomia: "cerebro_anatomia.png",
-      ficha: "Cerebro_datos_importantes.png",
+      miniatura: "thumb_cerebro.webp",
+      imagen: "Cerebro_transparente.webp",
+      anatomia: "cerebro_anatomia.webp",
+      ficha: "Cerebro_datos_importantes.webp",
     },
   },
   {
@@ -41,10 +41,10 @@ export const ORGANOS = [
     detalle: "Intercambio gaseoso",
     archivos: {
       modelo: "Pulmones.glb",
-      miniatura: "thumb_pulmones.png",
-      imagen: "pulmones_fotorrealistas_16x9_transparente.png",
-      anatomia: "pulmones_anatomia.png",
-      ficha: "pulmones_datos_importantes.png",
+      miniatura: "thumb_pulmones.webp",
+      imagen: "pulmones_fotorrealistas_16x9_transparente.webp",
+      anatomia: "pulmones_anatomia.webp",
+      ficha: "pulmones_datos_importantes.webp",
     },
   },
   {
@@ -65,10 +65,10 @@ export const ORGANOS = [
     detalle: "Músculo cardíaco",
     archivos: {
       modelo: "Corazon.glb",
-      miniatura: "thumb_corazon.png",
-      imagen: "corazon_fotorrealista_16x9_transparente.png",
-      anatomia: "corazon_anatomia.png",
-      ficha: "corazon_datos_importantes.png",
+      miniatura: "thumb_corazon.webp",
+      imagen: "corazon_fotorrealista_16x9_transparente.webp",
+      anatomia: "corazon_anatomia.webp",
+      ficha: "corazon_datos_importantes.webp",
     },
   },
   {
@@ -89,10 +89,10 @@ export const ORGANOS = [
     detalle: "Metabolismo y detoxificación",
     archivos: {
       modelo: "Higado.glb",
-      miniatura: "thumb_higado.png",
-      imagen: "higado_fotorrealista_16x9_transparente.png",
-      anatomia: "higado_anatomia.png",
-      ficha: "higado_datos_importantes.png",
+      miniatura: "thumb_higado.webp",
+      imagen: "higado_fotorrealista_16x9_transparente.webp",
+      anatomia: "higado_anatomia.webp",
+      ficha: "higado_datos_importantes.webp",
     },
   },
   {
@@ -113,10 +113,10 @@ export const ORGANOS = [
     detalle: "Digestión inicial",
     archivos: {
       modelo: "Estomago.glb",
-      miniatura: "thumb_estomago.png",
-      imagen: "estomago_fotorrealista_16x9_transparente.png",
-      anatomia: "estomago_anatomia.png",
-      ficha: "estomago_datos_importantes.png",
+      miniatura: "thumb_estomago.webp",
+      imagen: "estomago_fotorrealista_16x9_transparente.webp",
+      anatomia: "estomago_anatomia.webp",
+      ficha: "estomago_datos_importantes.webp",
     },
   },
   {
@@ -137,10 +137,10 @@ export const ORGANOS = [
     detalle: "Absorción y tránsito",
     archivos: {
       modelo: "Intestinos.glb",
-      miniatura: "thumb_intestinos.png",
-      imagen: "intestinos_fotorrealistas_16x9_transparente.png",
-      anatomia: "intestino_anatomia.png",
-      ficha: "intestinos_datos_importantes.png",
+      miniatura: "thumb_intestinos.webp",
+      imagen: "intestinos_fotorrealistas_16x9_transparente.webp",
+      anatomia: "intestino_anatomia.webp",
+      ficha: "intestinos_datos_importantes.webp",
     },
   },
   {
@@ -161,10 +161,10 @@ export const ORGANOS = [
     detalle: "Homeostasis",
     archivos: {
       modelo: "rinones.glb",
-      miniatura: "thumb_rinones.png",
-      imagen: "rinones_fotorrealistas_16x9_transparente.png",
-      anatomia: "rinones_anatomia.png",
-      ficha: "rinones_datos_importantes.png",
+      miniatura: "thumb_rinones.webp",
+      imagen: "rinones_fotorrealistas_16x9_transparente.webp",
+      anatomia: "rinones_anatomia.webp",
+      ficha: "rinones_datos_importantes.webp",
     },
   },
   {
@@ -185,10 +185,10 @@ export const ORGANOS = [
     detalle: "Digestión y glucosa",
     archivos: {
       modelo: "Pancreas.glb",
-      miniatura: "thumb_pancreas.png",
-      imagen: "pancreas_fotorrealista_16x9_transparente.png",
-      anatomia: "pancreas_anatomia.png",
-      ficha: "pancreas_datos_importantes.png",
+      miniatura: "thumb_pancreas.webp",
+      imagen: "pancreas_fotorrealista_16x9_transparente.webp",
+      anatomia: "pancreas_anatomia.webp",
+      ficha: "pancreas_datos_importantes.webp",
     },
   },
   {
@@ -209,10 +209,10 @@ export const ORGANOS = [
     detalle: "Hormonas tiroideas",
     archivos: {
       modelo: "Tiroides.glb",
-      miniatura: "thumb_tiroides.png",
-      imagen: "tiroides_fotorrealista_16x9_transparente.png",
-      anatomia: "glandulas_anatomia.png",
-      ficha: "tiroides_datos_importantes.png",
+      miniatura: "thumb_tiroides.webp",
+      imagen: "tiroides_fotorrealista_16x9_transparente.webp",
+      anatomia: "glandulas_anatomia.webp",
+      ficha: "tiroides_datos_importantes.webp",
     },
   },
   {
@@ -233,10 +233,10 @@ export const ORGANOS = [
     detalle: "Maduración inmune",
     archivos: {
       modelo: "timo.glb",
-      miniatura: "thumb_timo.png",
-      imagen: "timo_fotorrealista_16x9_transparente.png",
-      anatomia: "timo_anatomia.png",
-      ficha: "timo_datos_importantes.png",
+      miniatura: "thumb_timo.webp",
+      imagen: "timo_fotorrealista_16x9_transparente.webp",
+      anatomia: "timo_anatomia.webp",
+      ficha: "timo_datos_importantes.webp",
     },
   },
   {
@@ -257,10 +257,10 @@ export const ORGANOS = [
     detalle: "Almacenamiento urinario",
     archivos: {
       modelo: "Vejiga.glb",
-      miniatura: "thumb_vejiga.png",
-      imagen: "vejiga_fotorrealista_16x9_transparente.png",
-      anatomia: "vejiga_anatomia.png",
-      ficha: "vejiga_datos_importantes.png",
+      miniatura: "thumb_vejiga.webp",
+      imagen: "vejiga_fotorrealista_16x9_transparente.webp",
+      anatomia: "vejiga_anatomia.webp",
+      ficha: "vejiga_datos_importantes.webp",
     },
   },
   {
@@ -281,10 +281,10 @@ export const ORGANOS = [
     detalle: "Conducción aérea",
     archivos: {
       modelo: "Nasofaringe.glb",
-      miniatura: "thumb_nasofaringe.png",
-      imagen: "nasofaringe_fotorrealista_16x9_transparente.png",
-      anatomia: "nasofaringe_anatomia.png",
-      ficha: "nasofaringe_datos_importantes.png",
+      miniatura: "thumb_nasofaringe.webp",
+      imagen: "nasofaringe_fotorrealista_16x9_transparente.webp",
+      anatomia: "nasofaringe_anatomia.webp",
+      ficha: "nasofaringe_datos_importantes.webp",
     },
   },
   {
@@ -305,10 +305,10 @@ export const ORGANOS = [
     detalle: "Reproducción",
     archivos: {
       modelo: "sistemafemenino.glb",
-      miniatura: "thumb_femenino.png",
-      imagen: "femenino.png",
-      anatomia: "reproductor_anatomia.png",
-      ficha: "femenino_datos_importantes.png",
+      miniatura: "thumb_femenino.webp",
+      imagen: "femenino.webp",
+      anatomia: "reproductor_anatomia.webp",
+      ficha: "femenino_datos_importantes.webp",
     },
   },
   {
@@ -329,10 +329,10 @@ export const ORGANOS = [
     detalle: "Estructura de soporte y protección",
     archivos: {
       modelo: "Columna_Vertebral.glb",
-      miniatura: "thumb_columna.png",
-      imagen: "columna_transparente.png",
-      anatomia: "columna_anatomia.png",
-      ficha: "columna_datos_importantes.png",
+      miniatura: "thumb_columna.webp",
+      imagen: "columna_transparente.webp",
+      anatomia: "columna_anatomia.webp",
+      ficha: "columna_datos_importantes.webp",
     },
   },
 ];

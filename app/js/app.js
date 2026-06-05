@@ -390,6 +390,33 @@ function setupEventos() {
     els.viewerStage.classList.remove("is-loading");
   });
 
+  els.modelViewer.addEventListener("dblclick", () => {
+    const cardGaleria = $('.collapsible[data-key="galeria"]');
+    const cardComparar = $('.collapsible[data-key="comparar"]');
+    if (!cardGaleria && !cardComparar) return;
+
+    const isAnyOpen = 
+      (cardGaleria && !cardGaleria.classList.contains("is-collapsed")) ||
+      (cardComparar && !cardComparar.classList.contains("is-collapsed"));
+
+    const shouldCollapse = isAnyOpen;
+
+    const cards = [cardGaleria, cardComparar].filter(Boolean);
+    cards.forEach(card => {
+      card.classList.toggle("is-collapsed", shouldCollapse);
+      const button = card.querySelector(".card__toggle");
+      if (button) {
+        button.setAttribute("aria-expanded", String(!shouldCollapse));
+      }
+
+      try {
+        const saved = JSON.parse(localStorage.getItem("chs_collapse") || "{}");
+        saved[card.dataset.key] = shouldCollapse;
+        localStorage.setItem("chs_collapse", JSON.stringify(saved));
+      } catch (error) {}
+    });
+  });
+
   els.modelViewer.addEventListener("error", () => {
     const src = els.modelViewer.getAttribute("src");
     if (src && src.startsWith("https://") && !src.includes("localhost")) {
