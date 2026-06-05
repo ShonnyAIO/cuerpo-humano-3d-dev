@@ -83,12 +83,10 @@ img {
 }
 
 .topbar__logo {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
+  width: 80px;
+  height: 80px;
   background:
-    url("../../app-assets/identidad/logo_cuerpo_humano.png") left center /
-      auto 76px no-repeat;
+    url("../../app-assets/identidad/logo-cntq.png") center / contain no-repeat;
 }
 
 .topbar__title {
@@ -134,12 +132,12 @@ img {
 }
 
 .topbar__avatar {
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid var(--primary);
   background:
-    #fff url("../../Cuerpo_humano.png") center 17% / 190% auto no-repeat;
+    #fff url("../../app-assets/identidad/logo_universidad_central_venezuela.png") center / contain no-repeat;
 }
 
 .workspace {
@@ -494,8 +492,8 @@ img {
   height: 72px;
   opacity: 0.18;
   background:
-    linear-gradient(120deg, transparent 0 12%, rgba(255,255,255,0.95) 12% 14%, transparent 14% 26%, rgba(255,255,255,0.95) 26% 28%, transparent 28% 40%, rgba(255,255,255,0.95) 40% 42%, transparent 42%),
-    linear-gradient(60deg, transparent 0 12%, rgba(255,255,255,0.95) 12% 14%, transparent 14% 26%, rgba(255,255,255,0.95) 26% 28%, transparent 28% 40%, rgba(255,255,255,0.95) 40% 42%, transparent 42%);
+    linear-gradient(120deg, transparent 0 12%, rgba(255, 255, 255, 0.95) 12% 14%, transparent 14% 26%, rgba(255, 255, 255, 0.95) 26% 28%, transparent 28% 40%, rgba(255, 255, 255, 0.95) 40% 42%, transparent 42%),
+    linear-gradient(60deg, transparent 0 12%, rgba(255, 255, 255, 0.95) 12% 14%, transparent 14% 26%, rgba(255, 255, 255, 0.95) 26% 28%, transparent 28% 40%, rgba(255, 255, 255, 0.95) 40% 42%, transparent 42%);
 }
 
 .viewer-stage__art {
@@ -888,7 +886,7 @@ img {
 .notes-card {
   flex: 0 0 auto;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,252,255,0.96)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 255, 0.96)),
     radial-gradient(circle at top right, rgba(218, 125, 119, 0.12), transparent 35%);
 }
 
@@ -1145,6 +1143,7 @@ img {
 }
 
 @media (max-width: 1080px) {
+
   html,
   body,
   .app {
@@ -1165,7 +1164,7 @@ img {
     flex-wrap: wrap;
   }
 
-  .right-column > .card {
+  .right-column>.card {
     flex: 1 1 320px;
   }
 }

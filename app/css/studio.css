@@ -78,12 +78,10 @@ a {
 }
 
 .studio-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 80px;
+  height: 80px;
   background:
-    url("../../app-assets/identidad/logo_cuerpo_humano.png") left center /
-      auto 80px no-repeat;
+    url("../../app-assets/identidad/logo-cntq.png") center / contain no-repeat;
 }
 
 .studio-brand__copy {
@@ -132,12 +130,12 @@ a {
 }
 
 .studio-avatar {
-  width: 42px;
-  height: 42px;
-  border: 2px solid rgba(35, 104, 217, 0.85);
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  border: 2px solid var(--primary);
   background:
-    #fff url("../../Cuerpo_humano.png") center 17% / 190% auto no-repeat;
+    #fff url("../../app-assets/identidad/logo_universidad_central_venezuela.png") center / contain no-repeat;
 }
 
 .studio-workspace {
@@ -197,7 +195,7 @@ a {
   border-radius: 24px;
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.96), transparent 32%),
-    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,244,239,0.78));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 244, 239, 0.78));
 }
 
 .scene-canvas-wrap {
@@ -611,11 +609,11 @@ a {
   transition: transform 0.2s ease;
 }
 
-.scene-toggle input:checked + .switch {
+.scene-toggle input:checked+.switch {
   background: var(--primary);
 }
 
-.scene-toggle input:checked + .switch::after {
+.scene-toggle input:checked+.switch::after {
   transform: translateX(13px);
 }
 
