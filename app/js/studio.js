@@ -16,8 +16,8 @@ const LAYOUT = {
   pancreas: { position: [0.12, 0.46, 0.18], scale: 0.62 },
   rinones: { position: [0, 0.42, -0.08], scale: 0.72 },
   intestinos: { position: [0, -0.04, 0.16], scale: 0.96 },
-  vejiga: { position: [0, -0.6, 0.18], scale: 0.56 },
-  femenino: { position: [0, -0.8, 0.1], scale: 0.64 },
+  vejiga: { position: [0, -0.32, 0.18], scale: 0.56 },
+  femenino: { position: [0, -0.38, 0.1], scale: 0.64 },
   columna: { position: [0, 0.45, -0.22], scale: 2.8 },
 };
 
@@ -114,7 +114,7 @@ const ZOOM_MAX = 18;
 
 const controls = new OrbitControls(camera, els.canvas);
 controls.enableDamping = true;
-controls.enablePan = false;
+controls.enablePan = true;
 controls.minDistance = ZOOM_MIN;
 controls.maxDistance = ZOOM_MAX;
 controls.target.set(0, 0.18, 0);
