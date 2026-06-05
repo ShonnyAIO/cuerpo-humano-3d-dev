@@ -18,6 +18,7 @@ const LAYOUT = {
   intestinos: { position: [0, -0.04, 0.16], scale: 0.96 },
   vejiga: { position: [0, -0.6, 0.18], scale: 0.56 },
   femenino: { position: [0, -0.8, 0.1], scale: 0.64 },
+  columna: { position: [0, 0.45, -0.22], scale: 2.8 },
 };
 
 const ORDER = [
@@ -34,6 +35,7 @@ const ORDER = [
   "intestinos",
   "vejiga",
   "femenino",
+  "columna",
 ];
 
 const SCENE_BG = new THREE.Color(0xf8f5f1);
@@ -760,6 +762,34 @@ function bindEvents() {
     state.zoom = Math.min(ZOOM_MAX, state.zoom + 0.6);
     camera.position.setLength(state.zoom);
   });
+
+  const btnFullscreen = $("#btn-fullscreen");
+  if (btnFullscreen) {
+    btnFullscreen.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch((err) => {
+          toast("No se pudo activar pantalla completa");
+          console.error(err);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      const isFullscreen = !!document.fullscreenElement;
+      btnFullscreen.classList.toggle("is-active", isFullscreen);
+      const icon = btnFullscreen.querySelector("i");
+      if (icon) {
+        icon.setAttribute("data-lucide", isFullscreen ? "minimize" : "maximize");
+        refreshIcons();
+      }
+      const label = btnFullscreen.querySelector("span");
+      if (label) {
+        label.textContent = isFullscreen ? "Salir" : "Pantalla";
+      }
+    });
+  }
   $("#btn-undo").addEventListener("click", undoLastPlacement);
   $("#btn-reset").addEventListener("click", resetAssembly);
   $("#btn-shuffle").addEventListener("click", () => {

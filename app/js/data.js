@@ -311,6 +311,30 @@ export const ORGANOS = [
       ficha: "femenino_datos_importantes.png",
     },
   },
+  {
+    id: "columna",
+    nombre: "Columna vertebral",
+    descriptor: "Soporte estructural",
+    sistema: "Sistema esquelético",
+    funcion: "Protege la médula espinal y sostiene el tronco",
+    ubicacion: "Eje posterior del tronco",
+    relacion: "Cráneo, costillas y pelvis",
+    resumen:
+      "La columna vertebral es la estructura ósea que sostiene el cuerpo, protege la médula espinal y permite la flexibilidad y el movimiento del tronco.",
+    datoCurioso:
+      "Los humanos nacen con 33 vértebras, pero al llegar a la adultez algunas se fusionan y terminamos con 26.",
+    importancia:
+      "Mantiene la postura erguida, protege el sistema nervioso central (médula) y sirve de anclaje para los músculos y costillas.",
+    tamano: "Aproximadamente 70 cm en adultos",
+    detalle: "Estructura de soporte y protección",
+    archivos: {
+      modelo: "Columna_Vertebral.glb",
+      miniatura: "thumb_columna.png",
+      imagen: "columna_transparente.png",
+      anatomia: "columna_anatomia.png",
+      ficha: "columna_datos_importantes.png",
+    },
+  },
 ];
 
 // CONFIGURACIÓN DE CDN (CLOUDFLARE R2)
