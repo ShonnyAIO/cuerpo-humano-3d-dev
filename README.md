@@ -4,8 +4,6 @@ Aplicacion web educativa para explorar organos del cuerpo humano con modelos
 3D, fichas visuales, anatomia, comparacion entre organos y un modo de estudio
 para armar el cuerpo por piezas.
 
-![Interfaz principal](Mockup.png)
-
 ## Video tutorial
 
 En este video explicativo se muestra, paso a paso, como crear una app web
@@ -23,8 +21,6 @@ educativa en 3D del cuerpo humano:
 - Panel de detalles con sistema, funcion, ubicacion y relacion anatomica.
 - Notas clinicas y datos curiosos.
 - Modo `Estudio` para armar el cuerpo humano en una escena 3D.
-
-![Modo estudio](CuerpoHumanoStudio.png)
 
 ## Organos incluidos
 
